@@ -203,6 +203,6 @@ func getAllScore(stuIdentify, cookie string) ([]mtStruct.Score, error) {
 
 让用户通过微信公共号平台和后端进行数据的交互，我们获取到用户的信息，拿着用户的信息帮用户监听教务系统的成绩单的状态。一旦有成绩第一时间推送给用户。
 
-[点击查查看公众号端设计思路](https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit&action=edit&type=10&appmsgid=100000011&token=11620974&lang=zh_CN)
+[点击查查看公众号端设计思路](https://mp.weixin.qq.com/s/hXENpGqFfzs9TvIkZOp9ww)
 
 
