@@ -1,11 +1,16 @@
+[TOC]
+
+
+
 ### 一、Golang模拟用户登陆，突破教务系统
+
 
 
 #### 1.1 请求登陆页面
 
 整个流程中的第一步是获取登陆页面，就像下图这样人为的通过浏览器访问服务端，服务端返回反馈返回登陆页面
 
-![image-20200602062729513](/Users/dxm/Library/Application Support/typora-user-images/image-20200602062729513.png)
+![image-20200602062729513](https://img2020.cnblogs.com/blog/1496926/202006/1496926-20200602100219961-120669290.png)
 
 访问登陆页面的目的上图中标注出来了，为了获取到Cookie，给真正发起登陆到请求方法使用。
 
@@ -32,7 +37,7 @@ func GetCookieFromLoginhtml(url string) (cookie string, e error) {
 
 输入账号账号密码后点击登陆，将向后端发送登陆请求，如下图：
 
-![image-20200602063307341](/Users/dxm/Library/Application Support/typora-user-images/image-20200602063307341.png)
+![image-20200602063307341](https://img2020.cnblogs.com/blog/1496926/202006/1496926-20200602100220631-432004266.png)
 
 
 
@@ -40,17 +45,17 @@ func GetCookieFromLoginhtml(url string) (cookie string, e error) {
 
 分析向后端发送到登陆请求都携带了哪些请求参数，携带了哪些请求头信息，以及需要通过Content-Type判断，该如何处理form表单中的数据发送到后台。后台才能正常响应。
 
-![image-20200602064317230](/Users/dxm/Library/Application Support/typora-user-images/image-20200602064317230.png)
+![image-20200602064317230](https://img2020.cnblogs.com/blog/1496926/202006/1496926-20200602100221242-2049638668.png)
 
 
 
 在浏览器的控制台中我们可以去看下登陆页面源码
 
-![image-20200602065641448](/Users/dxm/Library/Application Support/typora-user-images/image-20200602065641448.png)
+![image-20200602065641448](https://img2020.cnblogs.com/blog/1496926/202006/1496926-20200602100221716-1041379403.png)
 
 登陆页面对应的js源码
 
-![image-20200602070318841](/Users/dxm/Library/Application Support/typora-user-images/image-20200602070318841.png)
+![image-20200602070318841](https://img2020.cnblogs.com/blog/1496926/202006/1496926-20200602100222213-846199918.png)
 
 
 
@@ -157,7 +162,7 @@ func login(salt, cookie string) (html string) {
 
 所以，在选择golang的api时，我们选择下图这个api使用
 
-![image-20200602073500224](/Users/dxm/Library/Application Support/typora-user-images/image-20200602073500224.png)
+![image-20200602073500224](https://img2020.cnblogs.com/blog/1496926/202006/1496926-20200602100222683-1330209311.png)
 
 
 
@@ -198,31 +203,6 @@ func getAllScore(stuIdentify, cookie string) ([]mtStruct.Score, error) {
 
 让用户通过微信公共号平台和后端进行数据的交互，我们获取到用户的信息，拿着用户的信息帮用户监听教务系统的成绩单的状态。一旦有成绩第一时间推送给用户。
 
-点击如下面的链接查看详情
-
-https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit&action=edit&type=10&appmsgid=100000011&token=11620974&lang=zh_CN
-
-
-
-
-
-本项目项目GitHub地址：
-
-> 鸣谢： 微信公众号开发使用的开源库:  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[点击查查看公众号端设计思路](https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit&action=edit&type=10&appmsgid=100000011&token=11620974&lang=zh_CN)
 
 
